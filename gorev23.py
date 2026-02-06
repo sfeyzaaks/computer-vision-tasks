@@ -50,10 +50,10 @@ class UI(QWidget): #miras alma, bir pencerenin sahip olması gereken bütün öz
             sonuc = results[0].plot()
 
             rgb = cv2.cvtColor(sonuc, cv2.COLOR_BGR2RGB)
-            h, w, ch = rgb.shape
-            bytes_per_line = ch*w
+            h, w, ch = rgb.shape #yükseklik, genişlik ve renk kanalını alır
+            bytes_per_line = ch*w #satır başına byte hesabı yapar
             q_img = QImage(rgb.data, w, h, bytes_per_line, QImage.Format_RGB888)
-            pix_sonuc = QPixmap.fromImage(q_img)
+            pix_sonuc = QPixmap.fromImage(q_img) 
             self.lbl_sag.setPixmap(pix_sonuc.scaled(self.lbl_sag.width(), self.lbl_sag.height(), Qt.KeepAspectRatio))
             
            

@@ -20,13 +20,13 @@ class UI(QWidget):
         dosya_yolu , _ = QFileDialog.getOpenFileName(self, "resim seç")
 
         if dosya_yolu:
-            resim = Image.open(dosya_yolu)
-            metin = pytesseract.image_to_string(resim, lang="tur")
+            resim = Image.open(dosya_yolu) #seçilen dosya yolu kullanılarak resim pillow ile açılır
+            metin = pytesseract.image_to_string(resim, lang="tur") #resimdeki karakterler analiz edilir ve dijital metne dönüşür
 
             if metin.strip():
-                self.label.setText(metin) 
-                self.label.setWordWrap(True)
-                self.label.setMinimumHeight(100)
+                self.label.setText(metin) #okunan metin arayüze yansıtılır(label)
+                self.label.setWordWrap(True) #eğer metin çok uzunsa alt metne geçirir
+                self.label.setMinimumHeight(100) #etiketin yüksekliği ayarlanır
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

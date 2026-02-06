@@ -14,7 +14,7 @@ class UI(QMainWindow):
         uic.loadUi("new_win.ui", self)
         self.mdi = self.findChild(QMdiArea, "mdiArea")
         self.button = self.findChild(QPushButton, "pushButton") #designer da adı neyse o şekilde
-        self.button.clicked.connect(self.add_window)
+        self.button.clicked.connect(self.add_window) #butona tıklayınca add_window fonksiyonuna yönlendirir
         self.show()
 
     def add_window(self):

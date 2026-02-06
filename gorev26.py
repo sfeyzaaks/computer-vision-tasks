@@ -30,7 +30,7 @@ class UI(QMainWindow):
 
     def stop_camera(self):
         self.timer.stop() 
-        if hasattr(self, 'cap'):
+        if hasattr(self, 'cap'): #açılmamış kamera kapatmaya çalışılırsa hata vermesini önlemek için
             self.cap.release()
         self.label.clear()
 
